@@ -12,7 +12,7 @@ pipline{
               }
                stage("Checkout from SCM"){
                 steps{
-                git branch:'master',credentialId:'github',url:'https://github.com/Dineshdev001/register-app'
+                git branch:'master',credentialId:' https://github.com/Dineshdev001/register-app/blob/master/jenkinsfile'
                   }
                 }
                   stage("Build Application"){
