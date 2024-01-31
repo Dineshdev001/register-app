@@ -1,0 +1,29 @@
+pipline{
+      agent{label 'jenkins-Agent'}
+        tools{
+          jdk 'java17'
+           maven 'maven3'
+              }
+         stages{
+              stage("cleanup Workspace"){
+              step{
+              cleanWs()
+                }
+              }
+               stage("Checkout from SCM"){
+                steps{
+                git branch:'master',credentialId:'github',url:'https://github.com/Dineshdev001/register-app'
+                  }
+                }
+                  stage("Build Application"){
+                     step   {
+                     sh"mvn clean packge"
+                            }
+                           }
+                      stage("Test application"){
+                          step{
+                        sh "mvn test"
+                                }
+                              }
+                          }
+                       }
